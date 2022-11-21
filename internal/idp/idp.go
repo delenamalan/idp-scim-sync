@@ -82,7 +82,7 @@ func (i *IdentityProvider) GetGroups(ctx context.Context, filter []string) (*mod
 				"id":    grp.Id,
 				"name":  grp.Name,
 				"email": grp.Email,
-			}).Warning("idp: group already exists with the same name, this group will be avoided, please make your groups uniques by name!")
+			}).Warning("idp: group already exists with the same name, this group will be avoided, please make your groups unique by name!")
 		}
 	}
 
@@ -140,7 +140,7 @@ func (i *IdentityProvider) GetGroupMembers(ctx context.Context, groupID string) 
 			log.WithFields(log.Fields{
 				"id":    member.Id,
 				"email": member.Email,
-			}).Warn("skipping member because is a group, but group members will be included")
+			}).Warn("skipping member because it is a group, but group members will be included")
 			continue
 		}
 
